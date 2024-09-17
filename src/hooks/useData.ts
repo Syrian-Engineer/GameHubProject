@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import apiClient from "../services/api-client"
-import { CanceledError } from "axios"
+import { AxiosRequestConfig, CanceledError } from "axios"
 
 
 
@@ -10,7 +10,8 @@ interface fetchResponse<T> {
     results: T[]
 }
 
-const useData = <T>(endPoint:string) => {
+
+const useData = <T>(endPoint:string ,requestConfig ?: AxiosRequestConfig ,deps?:(number|undefined)[] ) => { // We Passed Genre As A String Query
     const[Data,setData] = useState<T[]>([]);
     const[error,setError] = useState("");
     const[isLoading,setLoading]=useState(false)
@@ -20,7 +21,7 @@ useEffect(() => {
    
     setLoading(true)
     apiClient
-    .get<fetchResponse<T>>(endPoint ,{signal:controller.signal})
+    .get<fetchResponse<T>>(endPoint,{signal:controller.signal , ...requestConfig})
     .then((res)=>{
         setData(res.data.results)
         setLoading(false)
@@ -33,7 +34,7 @@ useEffect(() => {
 
     return()=> controller.abort();
 
-}, [endPoint]);
+}, deps ? [...deps] : []);  // Because if Any Dependecies is Changed the UseEffect Will rerun and refresh data from the server
 
 return {Data,error,isLoading};
 
