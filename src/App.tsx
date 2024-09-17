@@ -15,16 +15,19 @@ const App = () => {
       lg:'200px 1fr'
     }}
     >
+      {/* NavBar */}
       <GridItem area={'nav'} >
         <NavBar />
       </GridItem>
 
+      {/* Aside Panel */}
       <Show above='lg' >
         <GridItem area={'aside'} paddingX={5}>
           <GenreList />
         </GridItem>
       </Show>
 
+    {/* MainBody GameCard */}
       <GridItem area={'main'}>
         <GameGrid />
       </GridItem>
