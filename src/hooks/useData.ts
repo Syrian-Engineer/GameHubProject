@@ -3,8 +3,6 @@ import apiClient from "../services/api-client"
 import { AxiosRequestConfig, CanceledError } from "axios"
 
 
-
-
 interface fetchResponse<T> {
     count:number,
     results: T[]
@@ -18,6 +16,7 @@ const useData = <T>(endPoint:string ,requestConfig ?: AxiosRequestConfig ,deps?:
 
 useEffect(() => {
     const controller = new AbortController();
+    
    
     setLoading(true)
     apiClient
