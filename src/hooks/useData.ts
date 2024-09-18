@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import apiClient from "../services/api-client"
 import { AxiosRequestConfig, CanceledError } from "axios"
+import { GameQuery } from "../App";
 
 
 interface fetchResponse<T> {
@@ -9,7 +10,7 @@ interface fetchResponse<T> {
 }
 
 
-const useData = <T>(endPoint:string ,requestConfig ?: AxiosRequestConfig ,deps?:(number|undefined)[] ) => { // We Passed Genre As A String Query
+const useData = <T>(endPoint:string ,requestConfig ?: AxiosRequestConfig ,deps?:GameQuery[] ) => { // We Passed Genre As A String Query
     const[Data,setData] = useState<T[]>([]);
     const[error,setError] = useState("");
     const[isLoading,setLoading]=useState(false)

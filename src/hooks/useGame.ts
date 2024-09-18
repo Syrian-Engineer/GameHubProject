@@ -1,5 +1,5 @@
+import { GameQuery } from "../App";
 import useData from "./useData";
-import { Genre } from "./useGeners";
 
 export interface Platform{
     id:number,
@@ -19,14 +19,17 @@ export interface Game{
 
 
 
-const useGame = (selectedGenre:Genre|null) => 
+const useGame = (gameQuery:GameQuery) => 
     useData<Game>(
         '/games',   
-        {params:{
-            genres:selectedGenre?.id
-        }},
-        [selectedGenre?.id]
-
+        {
+            params:
+            { // Parma Object That We Are Sending To The Server
+            genres:gameQuery.genre?.id,
+            platform:gameQuery.platform?.id
+             }
+        },
+        [gameQuery]
     )
 
 export default useGame
