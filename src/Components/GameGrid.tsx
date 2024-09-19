@@ -16,10 +16,9 @@ const GameGrid = ({gameQery}:Props) => {
     const{Data,error,isLoading} = useGame(gameQery);
     const skeletons = [1,2,3,4,5,6];
 
-  return (
-    <div>
-        {error && <Text>{error}</Text>}
-        
+    if(error) return <Text>{error}</Text>
+
+  return (       
         <SimpleGrid  
         columns={{sm:1 , md:2 , lg:3 }} 
         spacing={5} >
@@ -36,7 +35,6 @@ const GameGrid = ({gameQery}:Props) => {
                 </GameCardContainer>
             ))}
         </SimpleGrid>
-    </div>
   )
 }
 
