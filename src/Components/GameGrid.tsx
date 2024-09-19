@@ -22,7 +22,7 @@ const GameGrid = ({gameQery}:Props) => {
         
         <SimpleGrid  
         columns={{sm:1 , md:2 , lg:3 }} 
-        spacing={3} >
+        spacing={5} >
 
         {isLoading && skeletons.map(skeleton=>(
           <GameCardContainer key={skeleton}>

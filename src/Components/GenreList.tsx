@@ -19,7 +19,7 @@ const GenreList = ({selectedGenre,onSelectedGenre}:Props) => {
     }
   return (
    <>
-        <Heading fontSize='2xl' marginY={2}>Genres</Heading>
+        <Heading fontSize='2xl' marginBottom={3}>Genres</Heading>
         <ul>
         {Data.map(genre=>
         <li key={genre.id}>
