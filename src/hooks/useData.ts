@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import apiClient from "../services/api-client"
-import { AxiosRequestConfig, CanceledError } from "axios"
+import { AxiosRequestConfig, CanceledError ,} from "axios"
 import { GameQuery } from "../App";
 
 
@@ -16,7 +16,7 @@ const useData = <T>(endPoint:string ,requestConfig ?: AxiosRequestConfig ,deps?:
     const[isLoading,setLoading]=useState(false)
 
 useEffect(() => {
-    const controller = new AbortController();
+    const controller = new AbortController;
     
    
     setLoading(true)
