@@ -1,4 +1,4 @@
-import NoImage from '../assets/no-image-placeholder-6f3882e0.webp'
+import NoImage from '/Images/no-image-placeholder-6f3882e0-2QnybdhG.webp'
 
 
 const getCroppedImage = (url:string)=>{

@@ -1,9 +1,8 @@
 import { Image } from "@chakra-ui/react"
-import bullsEye from "../assets/bulls-eye.webp";
-import meh from "../assets/meh.webp";
-import  thumbsUp from "../assets/thumbs-up.webp";
+import bullsEye from "/Images/bulls-eye.webp";
+import meh from "/Images/meh-jG0yM-YB.webp";
+import  thumbsUp from "/Images/thumbs-up.webp";
 import { ImageProps } from "@chakra-ui/react";
-
 interface Props{
     rating:number
 }
